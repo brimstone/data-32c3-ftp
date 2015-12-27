@@ -22,14 +22,16 @@ scanloop(){
 	done
 }
 
-echo "$(date) Starting scan"
-nmap -PN -p 21 -vv -oG scan.gnmap -T5 -n 151.217.0/16 >/dev/null
-submit scan.gnmap
-echo "$(date) Scan ended"
-for ip in $(awk '/21\/open/{print $2}' scan.gnmap ); do
-	if [ ! -e "$ip".log ]; then
-		echo "Starting scan loop for $ip"
-		scanloop "$ip" &
-	fi
+while true; do 
+	echo "$(date) Starting scan"
+	nmap -PN -p 21 -vv -oG scan.gnmap -T5 -n 151.217.0/16 >/dev/null
+	submit scan.gnmap
+	echo "$(date) Scan ended"
+	for ip in $(awk '/21\/open/{print $2}' scan.gnmap ); do
+		if [ ! -e "$ip".log ]; then
+			echo "Starting scan loop for $ip"
+			scanloop "$ip" &
+		fi
+	done
+	sleep 3600
 done
-wait
