@@ -2,8 +2,8 @@
 set -euo pipefail
 
 retry(){
-	until "$*"; do
-		echo "$* failed, delaying randomly"
+	until "$@"; do
+		echo "$@ failed, delaying randomly"
 		sleep ${RANDOM:1:1}
 	done
 }
