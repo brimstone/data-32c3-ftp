@@ -16,8 +16,9 @@ submit(){
 
 scanloop(){
 	while true; do
+		rm "$1".log
 		~/bin/ftp.list "$1"
-		submit "$1"
+		[ -n "$(git status --porcelain "$1".log)" ] && submit "$1".log
 		sleep 3600
 	done
 }
