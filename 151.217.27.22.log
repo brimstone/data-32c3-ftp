@@ -1,1 +1,10 @@
-ftp://151.217.27.22/welcome.msg
+ftp://151.217.27.22/i3/haott/battery
+ftp://151.217.27.22/i3/haott/config
+ftp://151.217.27.22/i3/haott/i3blocks.conf
+ftp://151.217.27.22/i3/haott/lock-icon.png
+ftp://151.217.27.22/i3/haott/mediaplayer
+ftp://151.217.27.22/i3/haott/suspend-and-lock.bash
+ftp://151.217.27.22/i3/haott/temperature
+ftp://151.217.27.22/i3/haott/volume
+ftp://151.217.27.22/i3/haott/wireless
+ftp://151.217.27.22/structure: program|user|conf
